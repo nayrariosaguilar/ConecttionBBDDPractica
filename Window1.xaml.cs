@@ -1,4 +1,5 @@
-﻿using MySql.Data.MySqlClient;
+﻿using Google.Protobuf.WellKnownTypes;
+using MySql.Data.MySqlClient;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -34,26 +35,33 @@ namespace ConecttionBBDDPractica
         private void EnviarClient_Click(object sender, RoutedEventArgs e)
         {
             String nombre = name.Text;
-
-            //String id = id.ToString().Text;
-            //int numero = num.Text;
+            String numero = telefon.Text;
             String apellido = surname.Text;
+            
             String direccion = direction.Text;
-            int num = 0;
-            if ((nombre.Length > 0 && apellido.Length > 0 && direccion.Length > 0)) {
-                addUser(nombre, apellido, num, direccion);
+
+            if(int.TryParse(numero, out int tel))
+            {
+                if (!(string.IsNullOrWhiteSpace(nombre) && string.IsNullOrWhiteSpace(apellido)&& string.IsNullOrWhiteSpace(direccion)&&tel>0))
+                {
+                    int id = 0;
+                    addUser(id,nombre, apellido, tel, direccion);
+                }
+                else
+                {
+                    MessageBox.Show("Error: los datos del usuario son invalidos, NO PUEDEN ESTAR VACIOS");
+                }
             }
             else
             {
-                MessageBox.Show("Error: los datos del usuario son invalidos");
+                MessageBox.Show("Error: El telefono debe ser un entero");
             }
 
         }
-        private void addUser(String name, String surname, int num, String dirrection)
+        private void addUser(int id, String name, String surname, int num, String dirrection)
         {
-            //demanar al usuari que 
             string connectionString = null;
-            string sqlI = "INSERT INTO clients VALUES('"+name+"','"+surname+"','"+num+"'"+dirrection+"')";
+            string sqlI = "INSERT INTO clients VALUES('"+id+"','"+name+"','"+surname+"','"+num+"','"+dirrection+"')";
             connectionString = "Server=localhost;Database=practica;Uid=root;Pwd=;";
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
@@ -63,7 +71,7 @@ namespace ConecttionBBDDPractica
                     using (MySqlCommand cmd = new MySqlCommand(sqlI, conn))
                     {
                         int rowsAffected = cmd.ExecuteNonQuery();
-                        MessageBox.Show(" ExecuteNonQuery in SqlCommand executed !!");
+                        MessageBox.Show("Client succesfully added");
                     }
 
                 }

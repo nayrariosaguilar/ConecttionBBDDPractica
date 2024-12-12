@@ -12,16 +12,13 @@ using MySql.Data.MySqlClient;
 
 namespace ConecttionBBDDPractica
 {
-    /// <summary>
-    /// Interaction logic for MainWindow.xaml
-    /// </summary>
+   
     public partial class MainWindow : Window
     {
        
         public MainWindow()
         {
             InitializeComponent();
-            
 
         }
         public void connectar_clic(Object sender, RoutedEventArgs e)
@@ -45,19 +42,13 @@ namespace ConecttionBBDDPractica
             }
 
         }
-        public void insertNewClient()
-        {
-
-        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             Window1 window1 = new Window1();
             window1.ShowDialog();
             
-
         }
-
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {

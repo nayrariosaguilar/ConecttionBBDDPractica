@@ -15,9 +15,7 @@ using System.Windows.Shapes;
 
 namespace ConecttionBBDDPractica
 {
-    /// <summary>
-    /// Lógica de interacción para Window2.xaml
-    /// </summary>
+   
     public partial class Window2 : Window
     {
         public Window2()
@@ -27,20 +25,24 @@ namespace ConecttionBBDDPractica
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            String nombreExistente = nombre.Text;
-            if(nombreExistente!= null && nombreExistente.Length>0)
+            String idIntroducido = nombre.Text;
+            if (int.TryParse(idIntroducido, out int id))
             {
-                deleteUser(nombreExistente);
+                if (id > 0)
+                {
+                    deleteUser(id);
+                }
+                else
+                {
+                    MessageBox.Show("Error: los datos del usuario son invalidos");
+                }
             }
-            else
-            {
-                MessageBox.Show("Error: el usuario no existe");
-            }
+            
         }
-        private void deleteUser(String username)
+        private void deleteUser(int id)
         {
             string connectionString = null;
-            string sqlD = "DELETE FROM clients WHERE nom_cli='" + username + "';";
+            string sqlD = "DELETE FROM clients WHERE idClient='"+id +"';";
             connectionString = "Server=localhost;Database=practica;Uid=root;Pwd=;";
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
@@ -50,7 +52,15 @@ namespace ConecttionBBDDPractica
                     using (MySqlCommand cmd = new MySqlCommand(sqlD, conn))
                     {
                         int rowsAffected = cmd.ExecuteNonQuery();
-                        MessageBox.Show(" delete ok");
+                        if (rowsAffected == 0)
+                        {
+                            MessageBox.Show("La id no existe");
+                        }
+                        else
+                        {
+                            MessageBox.Show(" delete ok");
+                        }
+                       
                     }
                 }
                 catch (Exception ex)

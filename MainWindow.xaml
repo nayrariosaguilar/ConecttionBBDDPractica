@@ -7,8 +7,9 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Button Content="Insert new client" HorizontalAlignment="Left" Margin="153,155,0,0" VerticalAlignment="Top" Height="62" Width="108" Click="Button_Click"/>
-        <Button x:Name="Delete" Content="Delete a client" HorizontalAlignment="Left" Margin="449,150,0,0" VerticalAlignment="Top" Height="62" Width="121" Click="Delete_Click"/>
+        <Button x:Name="botonInsert" Content="Insert new client" HorizontalAlignment="Left" Margin="189,163,0,0" VerticalAlignment="Top" Height="92" Width="190" Click="Button_Click" FontSize="20" FontWeight="Bold"/>
+        <Button x:Name="Delete" Content="Delete a client" HorizontalAlignment="Left" Margin="438,163,0,0" VerticalAlignment="Top" Height="92" Width="180" Click="Delete_Click" FontSize="20" FontWeight="Bold"/>
+        <Label x:Name="titleformeli" Content="Selecciona una opción" HorizontalAlignment="Center" Margin="0,51,0,0" VerticalAlignment="Top" Width="327" FontSize="30" FontWeight="Bold" RenderTransformOrigin="0.506,0.496"/>
 
     </Grid>
 </Window>

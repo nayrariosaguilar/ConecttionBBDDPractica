@@ -6,13 +6,17 @@
         xmlns:local="clr-namespace:ConecttionBBDDPractica"
         mc:Ignorable="d"
         Title="Window1" Height="450" Width="800">
-    <Grid>
-        <TextBox x:Name="id" HorizontalAlignment="Left" Margin="319,156,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-        <TextBox x:Name="name" HorizontalAlignment="Left" Margin="319,199,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-        <TextBox x:Name="surname" HorizontalAlignment="Left" Margin="319,243,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-        <TextBox x:Name="num" HorizontalAlignment="Left" Margin="319,284,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-        <TextBox x:Name="direction" HorizontalAlignment="Left" Margin="319,332,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120" TextChanged="TextBox_TextChanged"/>
-        <Button x:Name="EnviarClient" Content="Button" Margin="279,368,321,27" Click="EnviarClient_Click"/>
+    <Grid HorizontalAlignment="Center">
+        <TextBox x:Name="name" HorizontalAlignment="Left" Margin="375,112,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="302" TextChanged="TextBox_TextChanged" Height="30" FontSize="20"/>
+        <TextBox x:Name="surname" HorizontalAlignment="Left" Margin="375,159,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="302" TextChanged="TextBox_TextChanged" Height="30" FontSize="20"/>
+        <TextBox x:Name="direction" HorizontalAlignment="Left" Margin="375,212,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="302" TextChanged="TextBox_TextChanged" Height="30" FontSize="20"/>
+        <Button x:Name="EnviarClient" Content="Crear nuevo cliente" Margin="253,324,247,60" Click="EnviarClient_Click" FontSize="25" FontWeight="Bold" Width="300" Height="50"/>
+        <TextBox x:Name="telefon" HorizontalAlignment="Left" Margin="375,266,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="302" TextChanged="TextBox_TextChanged" Height="30" FontSize="20"/>
+        <Label x:Name="titleform" Content="Formulario de creación de un cliente" HorizontalAlignment="Left" Margin="139,43,0,0" VerticalAlignment="Top" Width="528" FontSize="30" FontWeight="Bold" RenderTransformOrigin="0.506,0.496"/>
+        <Label x:Name="labelName" Content="Introduce un nombre:" HorizontalAlignment="Left" Margin="139,112,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <Label x:Name="labelsurnam" Content="Introduce un apellido:" HorizontalAlignment="Left" Margin="139,159,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <Label x:Name="labeldirection" Content="Introduce una dirección:" HorizontalAlignment="Left" Margin="128,212,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
+        <Label x:Name="labeltel" Content="Introduce un telefono:" HorizontalAlignment="Left" Margin="139,259,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold"/>
 
     </Grid>
 </Window>
