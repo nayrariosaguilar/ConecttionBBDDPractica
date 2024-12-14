@@ -42,8 +42,8 @@ namespace ConecttionBBDDPractica
         private void deleteUser(int id)
         {
             string connectionString = null;
-            string sqlD = "DELETE FROM clients WHERE idClient='"+id +"';";
-            connectionString = "Server=localhost;Database=practica;Uid=root;Pwd=;";
+            string sqlD = "DELETE FROM clients WHERE idClient='"+ id +"';";
+            connectionString = "Server=localhost;Port=3307;Database=practica;Uid=root;Pwd=;";
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 try

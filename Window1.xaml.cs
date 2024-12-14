@@ -16,11 +16,11 @@ using System.Windows.Shapes;
 
 namespace ConecttionBBDDPractica
 {
-    /// <summary>
-    /// Lógica de interacción para Window1.xaml
-    /// </summary>
+  
     public partial class Window1 : Window
     {
+        bool validarNombre;
+        bool validarApellido;
         public Window1()
         {
             InitializeComponent();
@@ -37,15 +37,23 @@ namespace ConecttionBBDDPractica
             String nombre = name.Text;
             String numero = telefon.Text;
             String apellido = surname.Text;
-            
             String direccion = direction.Text;
+            validarNombre = nombre.Any(char.IsDigit);
+            validarApellido = apellido.Any(char.IsDigit);
 
-            if(int.TryParse(numero, out int tel))
+
+            if (int.TryParse(numero, out int tel))
             {
                 if (!(string.IsNullOrWhiteSpace(nombre) && string.IsNullOrWhiteSpace(apellido)&& string.IsNullOrWhiteSpace(direccion)&&tel>0))
                 {
-                    int id = 0;
-                    addUser(id,nombre, apellido, tel, direccion);
+                    if (!(validarNombre||validarApellido)) {
+                        int id = 0;
+                        addUser(id, nombre, apellido, tel, direccion);
+                    }
+                    else
+                    {
+                        MessageBox.Show("No puedes introducir un numero dentro de un String");
+                    }
                 }
                 else
                 {
@@ -62,7 +70,7 @@ namespace ConecttionBBDDPractica
         {
             string connectionString = null;
             string sqlI = "INSERT INTO clients VALUES('"+id+"','"+name+"','"+surname+"','"+num+"','"+dirrection+"')";
-            connectionString = "Server=localhost;Database=practica;Uid=root;Pwd=;";
+            connectionString = "Server=localhost;Port=3307;Database=practica;Uid=root;Pwd=;";
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 try

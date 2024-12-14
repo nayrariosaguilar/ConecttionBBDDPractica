@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ConecttionBBDDPractica"
         mc:Ignorable="d"
-        Title="Window1" Height="450" Width="800">
-    <Grid HorizontalAlignment="Center">
+        Title="Window1" Height="450" Width="800" ResizeMode="NoResize">
+    <Grid HorizontalAlignment="Center" Margin="0,0,0,-34" Width="854">
         <TextBox x:Name="name" HorizontalAlignment="Left" Margin="375,112,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="302" TextChanged="TextBox_TextChanged" Height="30" FontSize="20"/>
         <TextBox x:Name="surname" HorizontalAlignment="Left" Margin="375,159,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="302" TextChanged="TextBox_TextChanged" Height="30" FontSize="20"/>
         <TextBox x:Name="direction" HorizontalAlignment="Left" Margin="375,212,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="302" TextChanged="TextBox_TextChanged" Height="30" FontSize="20"/>

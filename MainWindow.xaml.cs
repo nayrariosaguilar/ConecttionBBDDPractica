@@ -12,7 +12,7 @@ using MySql.Data.MySqlClient;
 
 namespace ConecttionBBDDPractica
 {
-   
+    
     public partial class MainWindow : Window
     {
        
@@ -26,7 +26,7 @@ namespace ConecttionBBDDPractica
             string connectionString = null;
             MySqlConnection conn;
 
-            connectionString = "Server=localhost;Database=practica;Uid=root;Pwd=;";
+            connectionString = "Server=localhost;Port=3307;Database=practica;Uid=root;Pwd=;";
             conn = new MySqlConnection(connectionString);
             try
             {
@@ -43,18 +43,29 @@ namespace ConecttionBBDDPractica
 
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+        private void botonInsert_Click(object sender, RoutedEventArgs e)
         {
             Window1 window1 = new Window1();
             window1.ShowDialog();
             
+        }
+        private void botonSelect_Click(object sender, RoutedEventArgs e)
+        {
+           SelectClients window1 = new SelectClients();
+            window1.ShowDialog();
+
         }
 
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
             Window2 window2 = new Window2();
             window2.ShowDialog();
+            
         }
-       
+
+        private void update_Click(object sender, RoutedEventArgs e)
+        {
+
+        }
     }
 }
