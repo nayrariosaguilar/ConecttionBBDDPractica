@@ -56,6 +56,13 @@ namespace ConecttionBBDDPractica
 
         }
 
+        private void update_Click(object sender, RoutedEventArgs e)
+        {
+            Window3 window3 = new Window3();
+            window3.ShowDialog();
+
+        }
+
         private void Delete_Click(object sender, RoutedEventArgs e)
         {
             Window2 window2 = new Window2();
