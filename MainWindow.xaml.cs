@@ -58,8 +58,8 @@ namespace ConecttionBBDDPractica
 
         private void update_Click(object sender, RoutedEventArgs e)
         {
-            Window3 window3 = new Window3();
-            window3.ShowDialog();
+             Preupdate window = new Preupdate();
+            window.ShowDialog();
 
         }
 
@@ -70,9 +70,5 @@ namespace ConecttionBBDDPractica
             
         }
 
-        private void update_Click(object sender, RoutedEventArgs e)
-        {
-
-        }
     }
 }

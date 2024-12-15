@@ -7,11 +7,14 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800" ResizeMode="NoResize">
     <Grid>
+
         <Button x:Name="botonInsert" Content="Insert new client" HorizontalAlignment="Left" Margin="172,125,0,0" VerticalAlignment="Top" Height="92" Width="190" Click="botonInsert_Click" FontSize="20" FontWeight="Bold"/>
         <Button x:Name="Delete" Content="Delete a client" HorizontalAlignment="Left" Margin="421,125,0,0" VerticalAlignment="Top" Height="92" Width="180" Click="Delete_Click" FontSize="20" FontWeight="Bold"/>
         <Label x:Name="titleformeli" Content="Selecciona una opción" HorizontalAlignment="Center" Margin="0,51,0,0" VerticalAlignment="Top" Width="327" FontSize="30" FontWeight="Bold" RenderTransformOrigin="0.506,0.496"/>
         <Button x:Name="botonSelect" Content="Select all clients" HorizontalAlignment="Left" Margin="172,237,0,0" VerticalAlignment="Top" Height="92" Width="190" Click="botonSelect_Click" FontSize="20" FontWeight="Bold"/>
         <Button x:Name="update" Content="Update client" HorizontalAlignment="Left" Margin="421,237,0,0" VerticalAlignment="Top" Height="92" Width="180" Click="update_Click" FontSize="20" FontWeight="Bold"/>
+
+       
 
     </Grid>
 </Window>
