@@ -20,7 +20,7 @@
             </Label.RenderTransform>
         </Label>
         <Label x:Name="titleformeli" Content="Introduce el id, para actualizar los datos" HorizontalAlignment="Center" Margin="0,16,0,0" VerticalAlignment="Top" Width="572" FontSize="30" FontWeight="Bold" RenderTransformOrigin="0.506,0.496"/>
-        <DataGrid x:Name="SelectById" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="114,233,114,122" SelectionChanged="SelectById_SelectionChanged"/>
-        <Button x:Name="InsertarEnId" Content="Actualizar cliente" HorizontalAlignment="Left" Margin="252,348,0,0" VerticalAlignment="Top" Height="50" Width="300" Click="ActualizarClient_Click" FontSize="25" FontWeight="Bold"/>
+        <DataGrid x:Name="SelectById" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="114,233,114,122" IsReadOnly="False"/>
+        <Button x:Name="actualizarInfo" Content="Actualizar cliente" HorizontalAlignment="Left" Margin="252,348,0,0" VerticalAlignment="Top" Height="50" Width="300" Click="ActualizarClient_Click" FontSize="25" FontWeight="Bold"/>
     </Grid>
 </Window>

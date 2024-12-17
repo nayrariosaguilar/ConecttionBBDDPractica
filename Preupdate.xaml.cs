@@ -31,10 +31,13 @@ namespace ConecttionBBDDPractica
                 if (idNum > 0)
                 {
                    bool resposta = SelectByIdMethod(idNum);
+                    ComprobarId.IsEnabled = false;
+                    id.IsEnabled = false;
                     if (!resposta)
                     {
                         MessageBox.Show("Error: La id es inválida");
                     }
+                    
                 }
                 else
                 {
@@ -47,7 +50,7 @@ namespace ConecttionBBDDPractica
             string connectionString = null;
             string sqlI = "SELECT * FROM clients WHERE idClient='"+Id+"';";
 
-            connectionString = "Server=localhost;Port=3307;Database=practica;Uid=root;Pwd='';";
+            connectionString = "Server=localhost;Database=practica;Uid=root;Pwd='';";
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
@@ -62,12 +65,12 @@ namespace ConecttionBBDDPractica
                         {
                             if (reader.HasRows)
                             {
-
                                 DataTable table = new DataTable();
                                 //cargamos el DataReader en la table
                                 table.Load(reader);
                                 SelectById.ItemsSource = table.DefaultView;
                                 return true;
+                                
                             }
                             else
                             {
@@ -109,43 +112,84 @@ namespace ConecttionBBDDPractica
                 string apellidoOriginal = originalRow["cognom_cli", DataRowVersion.Original].ToString();
                 string direccionOriginal = originalRow["direccio_cli", DataRowVersion.Original].ToString();
                 string telefonoOriginal = originalRow["telf_cli", DataRowVersion.Original].ToString();
-
+                
                 // Detecta cambios en las columnas
                 if (nuevoNombre != nombreOriginal)
                 {
-                    UpdateCliente(id, "nom_cli", nuevoNombre);
-                }else if (nuevoApellido != apellidoOriginal)
+                    if ((!string.IsNullOrWhiteSpace(nuevoNombre))&&nuevoNombre.Length<=25)
+                    {
+                            UpdateCliente(id, "nom_cli", nuevoNombre);
+                            actualizarInfo.IsEnabled = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show(" EN NOMBRE: No puedes dejar el campo vacio, no puede ser mayor a 25 y no puedes introducir numeros");
+                    }
+                  
+                }else
+                if (nuevoApellido != apellidoOriginal)
                 {
-                    UpdateCliente(id, "cognom_cli", nuevoApellido);
-                }
-                else if (nuevaDireccion != direccionOriginal)
+                    if ((!string.IsNullOrWhiteSpace(nuevoApellido)) && (!validarString(nuevoApellido))&& nuevoApellido.Length<=35)
+                    {
+                            UpdateCliente(id, "cognom_cli", nuevoApellido);
+                            actualizarInfo.IsEnabled = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("EN APELLIDO: No puedes dejar el campo vacio, no puede ser mayor a 35 y no puedes introducir numeros");
+                    }
+                   
+                }else
+                if (nuevaDireccion != direccionOriginal)
                 {
-                    UpdateCliente(id, "direccio_cli", nuevaDireccion);
-                }
-                else if (nuevoTelefono != telefonoOriginal)
+                    if ((!string.IsNullOrWhiteSpace(nuevaDireccion)) &&nuevaDireccion.Length<=50)
+                    {
+                        UpdateCliente(id, "direccio_cli", nuevaDireccion);
+                        actualizarInfo.IsEnabled = false;
+                    }
+                    else
+                    {
+                        MessageBox.Show("EN DIRECCION: No puedes dejar el campo vacio, no puede ser mayor a 50 ");
+                    }
+                }else
+                if (nuevoTelefono != telefonoOriginal)
                 {
-                    UpdateCliente(id, "telf_cli", nuevoTelefono);
-                }
-                else
-                {
-                    MessageBox.Show("La id nose puede editar.");
+                    if ((!string.IsNullOrWhiteSpace(nuevoTelefono)) && nuevoTelefono.Length<=9)
+                    {
+                        UpdateCliente(id, "telf_cli", nuevoTelefono);
+                        actualizarInfo.IsEnabled = false;
+
+                    }
+                    else
+                    {
+                        MessageBox.Show("No puedes dejar el campo vacio, no puede ser mayor a 9, POR DEFECTO NO DEJA INTRODUCIR LETRAS");
+                    }
+                   
                 }
 
             }
             else
             {
-                MessageBox.Show("No hay ningún cliente seleccionado.");
+                MessageBox.Show("La id nose puede editar.");
             }
+
         }
 
-
+        private bool validarString(string nombre)
+        {
+            return nombre.Any(char.IsDigit);
+        }
+        private bool validarNum(string num)
+        {
+            return num.All(char.IsDigit);
+        }
         private void UpdateCliente(int id, String columna, String nuevoValor)
         {
 
             string connectionString = null;
             string sqlI = $"UPDATE clients SET {columna} = '"+nuevoValor+"' WHERE idClient='" + id + "';";
 
-            connectionString = "Server=localhost;Port=3307;Database=practica;Uid=root;Pwd='';";
+            connectionString = "Server=localhost;Database=practica;Uid=root;Pwd='';";
 
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
@@ -159,11 +203,10 @@ namespace ConecttionBBDDPractica
                             if (rowsAffected==0)
                             {
                             MessageBox.Show("Los datos se actualizaron incorrectamente");
-                            }
-                            else
+                            }else if (rowsAffected == 1)
                             {
-                            MessageBox.Show("Los datos se actualizaron correctamente");
-                        }
+                            MessageBox.Show("se actualizo la columna"+columna);
+                            }
 
                     }
 

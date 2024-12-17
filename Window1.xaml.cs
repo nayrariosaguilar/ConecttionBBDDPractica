@@ -70,7 +70,7 @@ namespace ConecttionBBDDPractica
         {
             string connectionString = null;
             string sqlI = "INSERT INTO clients VALUES('"+id+"','"+name+"','"+surname+"','"+num+"','"+dirrection+"')";
-            connectionString = "Server=localhost;Port=3307;Database=practica;Uid=root;Pwd=;";
+            connectionString = "Server=localhost;Database=practica;Uid=root;Pwd=;";
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {
                 try

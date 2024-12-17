@@ -38,7 +38,7 @@ namespace ConecttionBBDDPractica
             string connectionString = null;
             string sqlI = "SELECT * FROM clients";
            
-            connectionString = "Server=localhost;Port=3307;Database=practica;Uid=root;Pwd='';";
+            connectionString = "Server=localhost;Database=practica;Uid=root;Pwd='';";
             
             using (MySqlConnection conn = new MySqlConnection(connectionString))
             {

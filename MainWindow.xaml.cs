@@ -26,7 +26,7 @@ namespace ConecttionBBDDPractica
             string connectionString = null;
             MySqlConnection conn;
 
-            connectionString = "Server=localhost;Port=3307;Database=practica;Uid=root;Pwd=;";
+            connectionString = "Server=localhost;Database=practica;Uid=root;Pwd=;";
             conn = new MySqlConnection(connectionString);
             try
             {

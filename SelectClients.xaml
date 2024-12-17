@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="SelectClients" Height="450" Width="800">
     <Grid x:Name="ListadoClients">
-        <DataGrid x:Name="ListadoClientsGrilla" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="128,132,128,178" SelectionChanged="ListadoClientsGrilla_SelectionChanged"/>
+        <DataGrid x:Name="ListadoClientsGrilla" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="128,59,131,48" SelectionChanged="ListadoClientsGrilla_SelectionChanged" IsEnabled="False"/>
     </Grid>
 </Window>
